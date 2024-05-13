@@ -28,9 +28,9 @@ spec:
         server: '{{url}}'
         namespace: 'vote-app-{{cluster}}'
       syncPolicy:
-        automated:
-          selfHeal: false
-          prune: true
         syncOptions:
-          - CreateNamespace=true
+        - CreateNamespace=true
+        automated:
+          selfHeal: false 
+          prune: true
 
