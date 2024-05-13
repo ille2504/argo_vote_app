@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appNameVote }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    name: {{ .Values.appNameVote}}
+    app: demo-app 
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+        name: {{ .Values.appNameVote }}
+        app: demo-app 
+  template:
+    metadata:
+      name: {{ .Values.appNameVote }}
+      labels:
+        name: {{ .Values.appNameVote }}
+        app: demo-app 
+    spec:
+      containers:
+        - name: voting-app
+          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          ports:  
+            - containerPort: 80
+          env:
+          - name: {{ .Values.containers.env.OPTION_A.name }}
+            value: {{ .Values.containers.env.OPTION_A.value }} 
+          - name: {{ .Values.containers.env.OPTION_B.name }}
+            value: {{ .Values.containers.env.OPTION_B.value }}
+          resources:
+            requests:
+              memory: "16Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+

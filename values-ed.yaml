@@ -1,0 +1,15 @@
+appNameVote: voting-deploy
+appNameRedis: redis-deploy
+replicas: 1
+NodePort : 30001
+service:
+  nameVote: vote-service
+  nameRedis: redis-service
+containers:
+  env:
+    OPTION_A:
+      name: OPTION_A
+      value: Lany
+    OPTION_B:
+      name: OPTION_B
+      value: Pimienta

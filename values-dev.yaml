@@ -1,0 +1,11 @@
+namespace: dev-vote
+replicas: 2
+NodePort : 30004
+service:
+  nameVote: vote-service
+  nameRedis: redis-service
+configmap:
+  name: voting-cmv1.2
+  data:
+    OPTION_A: Mario
+    OPTION_B: Majo

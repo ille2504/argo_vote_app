@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: vote-app
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: ed 
+        url: https://kubernetes.default.svc
+      - cluster: stage 
+        url: https://kubernetes.default.svc      
+  template:
+    metadata:
+      name: 'vote-app-{{cluster}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/ille2504/argoCD.git
+        targetRevision: main
+        path: vote-app
+        helm:
+          valueFiles:
+          - values-{{cluster}}.yaml
+      destination:
+        server: '{{url}}'
+        namespace: 'vote-app-{{cluster}}'
+      syncPolicy:
+        automated:
+          selfHeal: false
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
+

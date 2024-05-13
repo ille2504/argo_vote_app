@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configmap.name }}
+  namespace: {{ .Values.namespace }}
+data:
+  OPTION_A: {{ .Values.configmap.data.OPTION_A }}
+  OPTION_B: {{ .Values.configmap.data.OPTION_B }}
+

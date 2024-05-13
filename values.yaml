@@ -1,0 +1,16 @@
+appNameVote: voting-deploy
+appNameRedis: redis-deploy
+namespace: default
+replicas: 2
+NodePort : 30001
+service:
+  nameVote: vote-service
+  nameRedis: redis-service
+configmap:
+  name: voting-cmv1.1
+  data:
+    OPTION_A: Cats
+    OPTION_B: Dogs
+image:
+  name: ille25/test-app
+  tag: vote_v5_wo_env

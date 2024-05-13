@@ -1,0 +1,1 @@
+minikube service vote-service --namespace {{ .Values.namespace }}

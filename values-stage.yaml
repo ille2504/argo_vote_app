@@ -1,0 +1,16 @@
+appNameVote: voting-deploy
+appNameRedis: redis-deploy
+replicas: 1
+NodePort : 30005
+service:
+  nameVote: vote-service
+  nameRedis: redis-service
+containers:
+  env:
+    OPTION_A:
+      name: OPTION_A
+      value: Nina
+    OPTION_B:
+      name: OPTION_B
+      value: Gin
+
