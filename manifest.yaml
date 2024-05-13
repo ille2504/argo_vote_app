@@ -22,7 +22,8 @@ spec:
         path: .
         helm:
           valueFiles:
-          - values-{{cluster}}.yaml
+            - values-{{cluster}}.yaml
+            - values.yaml
       destination:
         server: '{{url}}'
         namespace: 'vote-app-{{cluster}}'
