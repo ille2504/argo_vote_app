@@ -1,6 +1,5 @@
 appNameVote: voting-deploy
 appNameRedis: redis-deploy
-namespace: default
 replicas: 2
 NodePort : 30001
 service:
