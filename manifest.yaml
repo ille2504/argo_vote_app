@@ -19,7 +19,7 @@ spec:
       source:
         repoURL: https://github.com/ille2504/vote-app.git
         targetRevision: main
-        path: vote-app/vote-app
+        path: .
         helm:
           valueFiles:
           - values-{{cluster}}.yaml
