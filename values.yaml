@@ -1,7 +1,7 @@
 appNameVote: voting-deploy
 appNameRedis: redis-deploy
 replicas: 2
-NodePort : 30001
+NodePort : 30000
 service:
   nameVote: vote-service
   nameRedis: redis-service
