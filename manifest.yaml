@@ -17,9 +17,9 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/ille2504/argoCD.git
+        repoURL: https://github.com/ille2504/argo_vote_app.git
         targetRevision: main
-        path: vote-app
+        path: argo_vote_app
         helm:
           valueFiles:
           - values-{{cluster}}.yaml
